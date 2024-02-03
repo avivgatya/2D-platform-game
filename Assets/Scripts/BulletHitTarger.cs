@@ -1,0 +1,23 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class BulletHitTarger : MonoBehaviour
+{
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.tag == "Enemy")
+        {
+            collision.gameObject.GetComponent<enemyMoveSC>().Die();
+            Invoke("Des",0f);
+        }
+
+        
+    }
+
+    private void Des()
+    {
+        Destroy(gameObject);
+    }
+
+}
